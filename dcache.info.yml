@@ -1,0 +1,4 @@
+name: Deterministic Cache API (DCache)
+description: Allows super performant coordination-free cache chains.
+type: module
+core_version_requirement: ^8.8 || ^9 || 10

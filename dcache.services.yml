@@ -1,0 +1,18 @@
+services:
+  cache.dcache_default_memory:
+    class: Drupal\Core\Cache\CacheBackendInterface
+    factory: [ '@cache.backend.memory', 'get' ]
+    arguments: [ dcache_default_memory ]
+  cache.dcache_default_persistent:
+    class: Drupal\Core\Cache\CacheBackendInterface
+    factory: [ '@cache_factory', 'get' ]
+    arguments: [ dcache_default_persistent: ]
+    tags:
+      - { name: cache.bin, default_backend: cache.backend.database }
+  dcache.factory:
+    class: Drupal\webform4content\DeterministicCache\DCacheFactory
+    arguments: []
+  dcache.bin.default_memory_persistent:
+    class: Drupal\webform4content\DeterministicCache\DCacheInterface
+    factory: [ '@dcache.factory', 'get' ]
+    arguments: [ '@cache.dcache_default_memory', '@cache.dcache_default_persistent' ]

@@ -1,0 +1,37 @@
+{
+    "name": "drupal/dcache",
+    "type": "drupal-module",
+    "authors": [
+        {
+            "name": "Merlin",
+            "email": "merlin@geeks4change.net"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://packages.drupal.org/8"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Drupal\\dcache\\": "src/"
+        }
+    },
+    "require": {
+        "php": "^7.4 || ^8.0",
+    },
+    "require-dev": {
+        "drupal/core": "^9.3",
+        "drush/drush": "^11.3"
+    },
+    "config": {
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "composer/installers": true,
+            "cweagans/composer-patches": true,
+            "drupal/core-composer-scaffold": true,
+            "drupalspoons/composer-plugin": true
+        }
+    }
+}
