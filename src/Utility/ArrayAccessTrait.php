@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Drupal\dcache;;
+namespace Drupal\dcache\Utility;;
 
 /**
  * ArrayAccessTrait provides the implementation for \IteratorAggregate, \ArrayAccess, \Countable.

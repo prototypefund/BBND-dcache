@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Drupal\dcache;;
 
 use Drupal\Core\Cache\CacheableDependencyInterface;
+use Drupal\dcache\Utility\ArrayAccessTrait;
 
 final class CacheItemList implements \IteratorAggregate, \ArrayAccess, \Countable {
 
