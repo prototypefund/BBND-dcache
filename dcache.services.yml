@@ -10,9 +10,9 @@ services:
     tags:
       - { name: cache.bin, default_backend: cache.backend.database }
   dcache.factory:
-    class: Drupal\webform4content\DeterministicCache\DCacheFactory
+    class: Drupal\dcache\DCacheFactory
     arguments: []
   dcache.bin.default_memory_persistent:
-    class: Drupal\webform4content\DeterministicCache\DCacheInterface
+    class: Drupal\dcache\DCacheInterface
     factory: [ '@dcache.factory', 'get' ]
     arguments: [ '@cache.dcache_default_memory', '@cache.dcache_default_persistent' ]
