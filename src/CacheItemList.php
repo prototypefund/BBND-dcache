@@ -15,7 +15,7 @@ final class CacheItemList implements \IteratorAggregate, \ArrayAccess, \Countabl
    */
   protected array $cacheItemList;
 
-  function &getInnerArray(): array {
+  protected function &getInnerArray(): array {
     return $this->cacheItemList;
   }
 

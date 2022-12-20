@@ -12,7 +12,7 @@ namespace Drupal\dcache;;
  */
 trait ArrayAccessTrait {
 
-  abstract function &getInnerArray(): array;
+  abstract protected function &getInnerArray(): array;
 
   /**
    * (IteratorAggregate) Returns an iterator for traversing the data.
