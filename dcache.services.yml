@@ -6,7 +6,7 @@ services:
   cache.dcache_default_persistent:
     class: Drupal\Core\Cache\CacheBackendInterface
     factory: [ '@cache_factory', 'get' ]
-    arguments: [ dcache_default_persistent: ]
+    arguments: [ dcache_default_persistent ]
     tags:
       - { name: cache.bin, default_backend: cache.backend.database }
   dcache.factory:
