@@ -19,7 +19,7 @@ interface CacheItemListGeneratorInterface {
    * @return static
    *   A new instance for the subset.
    */
-  public function forCacheIds(array $cacheIds): self;
+  public function withCacheIds(array $cacheIds): self;
 
   /**
    * Generate cache items.

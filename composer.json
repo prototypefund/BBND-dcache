@@ -18,12 +18,18 @@
             "Drupal\\dcache\\": "src/"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "Drupal\\Tests\\dcache\\": "tests/src/"
+        }
+    },
     "require": {
         "php": "^7.4 || ^8.0"
     },
     "require-dev": {
-        "drupal/core": "^9.3 || ^10.0",
-        "drush/drush": "^11.3"
+        "drush/drush": "^11.3",
+        "drupal/core-dev": "^9.4 || ^10.0",
+        "drupal/core": "^9.4 || ^10.0"
     },
     "config": {
         "allow-plugins": {
@@ -31,7 +37,8 @@
             "composer/installers": true,
             "cweagans/composer-patches": true,
             "drupal/core-composer-scaffold": true,
-            "drupalspoons/composer-plugin": true
+            "drupalspoons/composer-plugin": true,
+            "phpstan/extension-installer": true
         }
     }
 }

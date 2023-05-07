@@ -63,12 +63,12 @@ final class DCache implements DCacheInterface {
     if ($cacheBackends) {
       $cacheBackend = reset($cacheBackends);
       $cids = $itemListGenerator->getCacheIds();
-      $items = CacheItemList::fromArray($cacheBackend->getMultiple($cids));
+      $items = CacheItemList::fromArraysByCacheId($cacheBackend->getMultiple($cids));
       // $cids now has the successfully fetched elements removed.
       if ($cids) {
-        $missingItemsGenerator = $itemListGenerator->forCacheIds($cids);
+        $missingItemsGenerator = $itemListGenerator->withCacheIds($cids);
         $missingItems = $this->doLookupOrGenerateMultiple(array_slice($cacheBackends, 1), $missingItemsGenerator);
-        $cacheBackend->setMultiple($missingItems->toArray());
+        $cacheBackend->setMultiple($missingItems->toArraysByCacheId());
         $items->extend($missingItems);
       }
       return $items;

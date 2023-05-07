@@ -21,17 +21,17 @@ final class CacheItemList implements \IteratorAggregate, \ArrayAccess, \Countabl
   }
 
   /**
-   * @param \Drupal\dcache;\CacheItem[] $cacheItemList
+   * @param \Drupal\dcache\CacheItem[] $cacheItemList
    */
   public function __construct(array $cacheItemList) {
     $this->cacheItemList = $cacheItemList;
   }
 
-  public static function fromArray(array $array): self {
+  public static function fromArraysByCacheId(array $array): self {
     return new self(array_map(fn(string $cid, array $item) => CacheItem::fromArray($cid, $item), array_keys($array), $array));
   }
 
-  public function toArray(): array {
+  public function toArraysByCacheId(): array {
     return array_map(fn(CacheItem $item) => $item->toArray(), $this->cacheItemList);
   }
 
