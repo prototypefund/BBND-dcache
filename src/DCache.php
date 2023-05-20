@@ -26,7 +26,7 @@ final class DCache implements DCacheInterface {
     return $this->doLookupOrGenerate($this->cacheBackends, $generator);
   }
 
-  public function doLookupOrGenerate(array $cacheBackends, CacheItemGeneratorInterface $generator) {
+  protected function doLookupOrGenerate(array $cacheBackends, CacheItemGeneratorInterface $generator) {
     if ($cacheBackends) {
       $cacheBackend = reset($cacheBackends);
       $cacheId = $generator->getCacheId();
@@ -45,21 +45,16 @@ final class DCache implements DCacheInterface {
   }
 
   /**
-   * @param \Drupal\dcache;\CacheItemListGeneratorInterface $itemListGenerator
-   *
-   * @return array
+   * @param \Drupal\dcache\CacheItemListGeneratorInterface $itemListGenerator
    */
-  public function lookupOrGenerateMultiple(CacheItemListGeneratorInterface $itemListGenerator): array {
+  public function lookupOrGenerateMultiple(CacheItemListGeneratorInterface $itemListGenerator): CacheItemList {
     return $this->doLookupOrGenerateMultiple($this->cacheBackends, $itemListGenerator);
   }
 
   /**
    * @param array<CacheBackendInterface> $cacheBackends
-   * @param \Drupal\dcache;\CacheItemListGeneratorInterface $itemListGenerator
-   *
-   * @return array
    */
-  public function doLookupOrGenerateMultiple(array $cacheBackends, CacheItemListGeneratorInterface $itemListGenerator): CacheItemList {
+  protected function doLookupOrGenerateMultiple(array $cacheBackends, CacheItemListGeneratorInterface $itemListGenerator): CacheItemList {
     if ($cacheBackends) {
       $cacheBackend = reset($cacheBackends);
       $cids = $itemListGenerator->getCacheIds();

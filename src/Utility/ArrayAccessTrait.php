@@ -82,7 +82,7 @@ trait ArrayAccessTrait {
   }
 
   /**
-   * Extend colleciton.
+   * Extend collection.
    *
    * @param iterable $other
    *   The other collection.

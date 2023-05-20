@@ -1,7 +1,7 @@
 services:
   # Work around https://www.drupal.org/project/drupal/issues/2973286
   dcache.cache.factory.memory:
-    class: \Drupal\dcache\CoreFix\MemoryCacheFactory
+    class: Drupal\dcache\CoreFix\MemoryCacheFactory
     tags:
       - { name: cache_tags_invalidator}
   cache.dcache_default_memory:

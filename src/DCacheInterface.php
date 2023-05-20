@@ -37,7 +37,7 @@ interface DCacheInterface {
    * @return mixed
    *   The resulting data item.
    *
-   * @see \Drupal\dcache;\DCacheInterface
+   * @see \Drupal\dcache\DCacheInterface
    */
   public function lookupOrGenerate(CacheItemGeneratorInterface $generator);
 
@@ -57,11 +57,11 @@ interface DCacheInterface {
    *   The cache tags.
    *   See also the requirements on $calculate and $tags on the interface.
    *
-   * @return array<mixed, string>
+   * @return CacheItemList<string, string>
    *   The resulting data items, keyed by cid.
    *
    * @see \Drupal\dcache;\DCacheInterface
    */
-  public function lookupOrGenerateMultiple(CacheItemListGeneratorInterface $itemListGenerator): array;
+  public function lookupOrGenerateMultiple(CacheItemListGeneratorInterface $itemListGenerator): CacheItemList;
 
 }
